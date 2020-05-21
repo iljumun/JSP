@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<script>
+	function CheckForm(){
+			var userId = document.getElementById("userId").value;
+			var userPwd = document.getElementById("userPwd").value;
+			var userPwdCheck = document.getElementById("userPwdCheck").value;
+			var radioArr = document.getElementsByName("gender");
+			var checkCount = 0;
+			
+			for(var jnx = 0; jnx<radioArr.length; jnx++){
+				if(radioArr[jnx].checked == true){ 
+					checkCount++;
+				}
+			}
+			
+			
+			if(userId == ""){
+				alert("아이디를 입력하세요.");
+				return false;
+
+			}
+			
+			if(userPwd == "") {
+				alert("비밀번호를 입력해 주세요.");
+				return false;
+			}
+			
+			if(userPwdCheck == ""){
+				alert("비밀번호 확인을 입력해 주세요.");
+				return false;
+			}
+			
+			if((userId=="test" && userPwd=="1234") && userPwdCheck=="1234"){
+				
+				document.getElementById("myForm").submit();
+		         
+			}else {
+				alert("아이디, 비밀번호, 비밀번호 확인을 다시 확인해 주세요.");
+			}
+			
+			if(checkCount == 0){
+				alert("성별을 선택해주세요.");
+		}
+	}
+</script>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<body>
+	<form id="myForm" action="LoginProcess" method="post">
+		아이디 : <input type="text" name="userId" id="userId"><br>
+		암호 : <input type="password" name="userPwd" id="userPwd"><br>
+		암호확인 : <input type="password" name="userPwdCheck" id="userPwdCheck"><br>
+		남녀구분 : <input type="radio" name="gender" value="남자"/>남
+				<input type="radio" name="gender" value="여자"/>여<br>
+		<input type="button" value="로그인" onclick="CheckForm();">
+		<input type="reset" value="초기화">
+	</form>
+</body>
+</html>
