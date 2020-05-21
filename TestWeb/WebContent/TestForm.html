@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function CheckForm(){
+		//window.alert("Hello...");
+			var userId = document.getElementById("userId").value;
+			var pwd = document.getElementById("pwd").value;
+			var pwdC = document.getElementById("pwdC").value;
+		//alert(userId);
+			if(userId == ""){
+				alert("아이디를 입력하세요.");
+				return false;
+			//alert(pwd + ", " + pwdC); //확인용
+			}
+			if(pwd == "") {
+				alert("비밀번호를 입력해 주세요.");
+				return false;
+			}
+			if(pwdC == ""){
+				alert("비밀번호 확인을 입력해 주세요.");
+				return false;
+			}
+			if(pwd != pwdC){
+				alert("비밀번호가 다릅니다");
+				return false;
+			}
+			
+	}
+</script>
+</head>
+<body>
+	<form action="testFormProcess.jsp" method="get">
+	 아이디 :
+	<input type="text" name="userId" id="userId"><br>
+	비밀번호 :
+	<input type="password" name="pwd" id="pwd">
+	<br>
+	비밀번호 확인 :
+	<input type="password" name="pwdC" id="pwdC"><br>
+	<input type="button" value="Login"
+	 onclick = "CheckForm();"> 
+	</form>
+	<p onclick="CheckForm();">Click</p>
+</body>
+</html>

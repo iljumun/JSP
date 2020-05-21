@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<script>
+	function CheckForm(){
+		/* var names = ['자장면', '짬뽕', '탕수육'];
+		for(var inx = 0; inx < names.length; inx++){
+			alert(names[inx]);
+		 }*/
+		//getElementById = 한개의 값만 받아옴
+		//getElementsByName = 여러개의 값 받아옴
+		var radioArr = document.getElementsByName("gender"); // 여러게의 gender 받아옴
+		var checkCount = 0;
+		for(var jnx = 0; jnx<radioArr.length; jnx++){
+			if(radioArr[jnx].checked == true){ 
+				checkCount++;
+			}
+		}
+		if(checkCount == 0){
+			alert("성별을 선택해주세요.");
+	}
+		//CheckBox가 2개 이상인 경우 통과.
+		var hobbyArr = document.getElementsByName("hobby");
+		var hobbyCount = 0;
+		for(var hnx = 0; hnx<hobbyArr.length; hnx++){
+			if(hobbyArr[hnx].checked == true){
+				hobbyCount++;
+			}
+		}
+		if(hobbyCount < 2){
+			alert("취미를 2개이상 선택해 주세요");
+			return false;
+	}
+		//var gender = document.myform.gender;
+		//var gender2 = document.forms[0].gender;
+}
+</script>
+<head>
+	<meta charset="EUC-KR">
+	<title>회원가입</title>
+</head>
+<body>
+	<form name="myForm" action="TestForm3Process.jsp" method="get">
+		아이디 : <input type="text" name="userId" id="userId"><br>
+		암호 : <input type="password" name="userPwd" id="userPwd"><br>
+		암화확인 : <input type="password" name="userPwdConfirm" id="userPwdConfirm"><br>
+		남녀구분 : 남<input type="radio" name="gender" value="male"> 
+		         여<input type="radio" name="gender" value="female"><br>
+		취미: 농구<input type="checkbox" name="hobby" value="basketball"> 
+		     야구<input type="checkbox" name="hobby" value="baseball">
+		     탁구<input type="checkbox" name="hobby" value="pingpong"><br>
+		<input type="button" value="가입" onclick="CheckForm();">&nbsp;
+		<input type="reset" value="초기화">
+	</form>
+</body>
+</html>
